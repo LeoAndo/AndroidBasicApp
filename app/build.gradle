@@ -62,12 +62,12 @@ android {
 
     flavorDimensions += "version"
     productFlavors {
-        bottombar { // テンプレート
+        bottombar { // BottomNavigationBarのバージョン
             dimension "version"
             applicationIdSuffix ".bottombar"
             versionNameSuffix "-bottombar"
         }
-        drawer { // 音光様向けバージョン
+        drawer { // DrawerLayoutのバージョン
             dimension "version"
             applicationIdSuffix ".drawer"
             versionNameSuffix "-drawer"
