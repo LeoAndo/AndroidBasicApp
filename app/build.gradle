@@ -1,7 +1,12 @@
 plugins {
     id 'com.android.application'
 }
-
+def localProperties = new Properties()
+try {
+    localProperties.load(new FileInputStream(rootProject.file("local.properties")))
+} catch (Exception e) {
+    logger.warn("Not Found local.properties: ${e.localizedMessage}")
+}
 android {
     namespace 'com.template.androidbasicapp'
     compileSdk 34
@@ -16,19 +21,45 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    buildTypes {
+    signingConfigs {
+        debug { storeFile rootProject.file('debug.keystore') }
         release {
-            minifyEnabled false
+            storeFile rootProject.file('release.keystore')
+            storePassword localProperties['ANDROID_STORE_PASSWORD']
+            keyAlias localProperties['ANDROID_KEY_ALIAS']
+            keyPassword localProperties['ANDROID_KEY_PASSWORD']
+        }
+    }
+
+    buildTypes {
+        debug { signingConfig signingConfigs.debug }
+        release {
+            // ローカル環境では署名なしのrelease ビルドも可能とする
+            if (rootProject.file('release.keystore').exists() &&
+                    localProperties['ANDROID_STORE_PASSWORD'] != null &&
+                    localProperties['ANDROID_KEY_ALIAS'] != null &&
+                    localProperties['ANDROID_KEY_PASSWORD'] != null
+            ) {
+                logger.warn("Use signingConfigs.release")
+                signingConfig signingConfigs.release
+            } else {
+                logger.warn("Not Use signingConfigs.release")
+            }
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     buildFeatures {
         viewBinding true
     }
+
     flavorDimensions += "version"
     productFlavors {
         bottombar { // テンプレート
