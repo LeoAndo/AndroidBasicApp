@@ -1,4 +1,4 @@
-package com.template.androidbasicapp.ui.slideshow;
+package com.template.androidbasicapp.ui.viewmodel;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

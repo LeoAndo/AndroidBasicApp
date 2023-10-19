@@ -1,4 +1,4 @@
-package com.template.androidbasicapp.ui.slideshow;
+package com.template.androidbasicapp.ui.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.template.androidbasicapp.databinding.FragmentSlideshowBinding;
+import com.template.androidbasicapp.ui.viewmodel.SlideshowViewModel;
 
 public class SlideshowFragment extends Fragment {
 
