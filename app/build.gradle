@@ -1,13 +1,18 @@
 plugins {
     id 'com.android.application'
 }
-
+def localProperties = new Properties()
+try {
+    localProperties.load(new FileInputStream(rootProject.file("local.properties")))
+} catch (Exception e) {
+    logger.warn("Not Found local.properties: ${e.localizedMessage}")
+}
 android {
     namespace 'com.template.androidbasicapp'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.template.androidbasicapp"
+        applicationId "com.template.androidbasicapp" // TODO applicationIdを他の人と被らない名前に変更してください。
         minSdk 29
         targetSdk 34
         versionCode 100
@@ -16,31 +21,82 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    buildTypes {
+    signingConfigs {
+        debug { storeFile rootProject.file('debug.keystore') }
         release {
-            minifyEnabled false
+            storeFile rootProject.file('release.keystore')
+            storePassword localProperties['ANDROID_STORE_PASSWORD']
+            keyAlias localProperties['ANDROID_KEY_ALIAS']
+            keyPassword localProperties['ANDROID_KEY_PASSWORD']
+        }
+    }
+
+    buildTypes {
+        debug { signingConfig signingConfigs.debug }
+        release {
+            // ローカル環境では署名なしのrelease ビルドも可能とする
+            if (rootProject.file('release.keystore').exists() &&
+                    localProperties['ANDROID_STORE_PASSWORD'] != null &&
+                    localProperties['ANDROID_KEY_ALIAS'] != null &&
+                    localProperties['ANDROID_KEY_PASSWORD'] != null
+            ) {
+                logger.warn("Use signingConfigs.release")
+                signingConfig signingConfigs.release
+            } else {
+                logger.warn("Not Use signingConfigs.release")
+            }
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     buildFeatures {
         viewBinding true
+    }
+
+    flavorDimensions += "version"
+    productFlavors {
+        simple {
+            dimension "version"
+            applicationIdSuffix ".simple"
+            versionNameSuffix "-simple"
+        }
+        bottombar { // BottomNavigationBarのバージョン
+            dimension "version"
+            applicationIdSuffix ".bottombar"
+            versionNameSuffix "-bottombar"
+        }
+        drawer { // DrawerLayoutのバージョン
+            dimension "version"
+            applicationIdSuffix ".drawer"
+            versionNameSuffix "-drawer"
+        }
     }
 }
 
 dependencies {
+    // UI
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("com.google.android.material:material:1.10.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("androidx.lifecycle:lifecycle-livedata:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-viewmodel:2.6.2")
+    implementation("androidx.navigation:navigation-fragment:2.7.4")
+    implementation("androidx.navigation:navigation-ui:2.7.4")
 
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.10.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.2'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2'
-    implementation 'androidx.navigation:navigation-fragment:2.7.4'
-    implementation 'androidx.navigation:navigation-ui:2.7.4'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    // Unit Test
+    testImplementation("junit:junit:4.13.2")
+    androidTestImplementation("androidx.test.ext:junit:1.1.5")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+    // Local Database - Room
+    def room_version = "2.5.0"
+    implementation("androidx.room:room-runtime:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
 }

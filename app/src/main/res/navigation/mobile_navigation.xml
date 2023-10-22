@@ -3,23 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_network_demo">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.template.androidbasicapp.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/nav_network_demo"
+        android:name="com.template.androidbasicapp.ui.fragment.NetworkDemoFragment"
+        android:label="@string/menu_network_demo"
+        tools:layout="@layout/fragment_network_demo" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.template.androidbasicapp.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_database_demo"
+        android:name="com.template.androidbasicapp.ui.fragment.DatabaseDemoFragment"
+        android:label="@string/menu_database_demo"
+        tools:layout="@layout/fragment_database_demo" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.template.androidbasicapp.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_preferences_demo"
+        android:name="com.template.androidbasicapp.ui.fragment.PreferencesDemoFragment"
+        android:label="@string/menu_preferences_demo"
+        tools:layout="@layout/fragment_preferences_demo" />
 </navigation>
