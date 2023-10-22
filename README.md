@@ -1,1 +1,9 @@
-# AndroidBasicApp
+# Overview
+
+Kotlin未経験で、Android Javaでアプリ開発したい人向けのテンプレートプロジェクト<br>
+
+# capture: pixel3a API 29
+
+| simple                                                 | bottmbar                                     | drawer                                    |
+--------------------------------------------------------|----------------------------------------------|-------------------------------------------
+| <img src="capture/simple.png" width=320/> | <img src="capture/bottombar.png" width=320/> | <img src="capture/drawer.png" width=320/> |

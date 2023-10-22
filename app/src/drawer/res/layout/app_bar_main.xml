@@ -27,7 +27,7 @@
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="12dp"
         android:layout_marginBottom="16dp"
-        android:contentDescription="@null"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:contentDescription="ダイアログを表示するボタン"
+        android:src="@android:drawable/ic_dialog_info" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

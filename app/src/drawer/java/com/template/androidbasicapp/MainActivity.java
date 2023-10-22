@@ -27,17 +27,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.appBarMain.toolbar);
-        binding.appBarMain.fab.setOnClickListener(view -> {
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show();
-        });
-        appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_network_demo, R.id.nav_database_demo, R.id.nav_preferences_demo)
+        appBarConfiguration = new AppBarConfiguration.Builder(binding.navView.getMenu())
                 .setOpenableLayout(binding.drawerLayout)
                 .build();
         navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
+
+        binding.appBarMain.fab.setOnClickListener(view -> {
+            Snackbar.make(getWindow().getDecorView(), "Fabボタンが押されました", Snackbar.LENGTH_SHORT).show();
+        });
     }
 
     @Override

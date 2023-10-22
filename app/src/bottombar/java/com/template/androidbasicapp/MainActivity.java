@@ -1,7 +1,6 @@
 package com.template.androidbasicapp;
 
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,7 +14,6 @@ import com.template.androidbasicapp.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ActivityMainBinding binding;
     @Nullable
     private AppBarConfiguration appBarConfiguration;
     @Nullable
@@ -25,19 +23,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        final ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_network_demo, R.id.nav_database_demo, R.id.nav_preferences_demo)
-                .build();
+        appBarConfiguration = new AppBarConfiguration.Builder(binding.navView.getMenu()).build();
         navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
-        // NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
 
-        binding.fab.setOnClickListener(v -> {
-            Snackbar.make(v, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show();
+        binding.fab.setOnClickListener(view -> {
+            Snackbar.make(getWindow().getDecorView(), "Fabボタンが押されました", Snackbar.LENGTH_SHORT).show();
         });
     }
 

@@ -1,18 +1,16 @@
-package com.template.androidbasicapp.ui;
+package com.template.androidbasicapp;
 
 import android.util.Log;
 import android.util.Pair;
 
 import androidx.annotation.NonNull;
 
-import com.template.androidbasicapp.BuildConfig;
-
 /**
  * ログ出力用のクラス
  */
-public final class Logger {
+public final class AppLogger {
 
-    private Logger() {
+    private AppLogger() {
     }
 
     public static void i(@NonNull final String msg) {

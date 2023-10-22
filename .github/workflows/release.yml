@@ -44,6 +44,8 @@ jobs:
       if: startsWith(github.ref, 'refs/tags/')
       with:
         files: |
+          app/build/outputs/apk/simple/release/app-simple-release.apk
+          app/build/outputs/bundle/simpleRelease/app-simple-release.aab
           app/build/outputs/apk/bottombar/release/app-bottombar-release.apk
           app/build/outputs/bundle/bottombarRelease/app-bottombar-release.aab
           app/build/outputs/apk/drawer/release/app-drawer-release.apk
