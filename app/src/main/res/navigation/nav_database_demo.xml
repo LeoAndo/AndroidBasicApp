@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_database_demo"
+    app:startDestination="@id/databaseDemoFragment">
+
+    <fragment
+        android:id="@+id/databaseDemoFragment"
+        android:name="com.template.androidbasicapp.ui.fragment.DatabaseDemoFragment"
+        android:label="@string/menu_database_demo"
+        tools:layout="@layout/fragment_database_demo" />
+</navigation>

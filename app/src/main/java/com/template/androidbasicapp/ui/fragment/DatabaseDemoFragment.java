@@ -12,7 +12,9 @@ import androidx.lifecycle.ViewModelProvider;
 import com.template.androidbasicapp.R;
 import com.template.androidbasicapp.databinding.FragmentDatabaseDemoBinding;
 import com.template.androidbasicapp.ui.viewmodel.DatabaseDemoViewModel;
-
+/**
+ * 機能のTop画面
+ */
 public class DatabaseDemoFragment extends Fragment {
 
     private FragmentDatabaseDemoBinding binding;

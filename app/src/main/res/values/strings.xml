@@ -6,4 +6,5 @@
     <string name="menu_network_demo">Network</string>
     <string name="menu_database_demo">Database</string>
     <string name="menu_preferences_demo">Preferences</string>
+    <string name="second">Fragmentの遷移テスト</string>
 </resources>
