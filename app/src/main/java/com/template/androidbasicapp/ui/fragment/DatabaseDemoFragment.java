@@ -10,25 +10,24 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.template.androidbasicapp.R;
-import com.template.androidbasicapp.databinding.FragmentSlideshowBinding;
-import com.template.androidbasicapp.ui.viewmodel.SlideshowViewModel;
+import com.template.androidbasicapp.databinding.FragmentDatabaseDemoBinding;
+import com.template.androidbasicapp.ui.viewmodel.DatabaseDemoViewModel;
 
-public class SlideshowFragment extends Fragment {
+public class DatabaseDemoFragment extends Fragment {
 
-    private FragmentSlideshowBinding binding;
+    private FragmentDatabaseDemoBinding binding;
+    private DatabaseDemoViewModel viewModel;
 
-    private SlideshowViewModel viewModel;
-
-    public SlideshowFragment() {
-        super(R.layout.fragment_slideshow);
+    public DatabaseDemoFragment() {
+        super(R.layout.fragment_database_demo);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        viewModel = new ViewModelProvider(this).get(SlideshowViewModel.class);
-        binding = FragmentSlideshowBinding.bind(view);
-        final TextView textView = binding.textSlideshow;
+        viewModel = new ViewModelProvider(this).get(DatabaseDemoViewModel.class);
+        binding = FragmentDatabaseDemoBinding.bind(view);
+        final TextView textView = binding.textGallery;
         viewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
     }
 

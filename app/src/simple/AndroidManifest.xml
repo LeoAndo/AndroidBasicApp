@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <activity
+            android:name=".PreferencesDemoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DatabaseDemoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NetworkDemoActivity"
+            android:exported="false" />
+    </application>
+
+</manifest>

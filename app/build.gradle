@@ -62,6 +62,11 @@ android {
 
     flavorDimensions += "version"
     productFlavors {
+        simple {
+            dimension "version"
+            applicationIdSuffix ".simple"
+            versionNameSuffix "-simple"
+        }
         bottombar { // BottomNavigationBarのバージョン
             dimension "version"
             applicationIdSuffix ".bottombar"

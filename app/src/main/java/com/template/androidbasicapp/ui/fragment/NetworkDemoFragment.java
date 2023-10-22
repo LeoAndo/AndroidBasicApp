@@ -8,26 +8,27 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import com.template.androidbasicapp.databinding.FragmentNetworkDemoBinding;
 
 import com.template.androidbasicapp.R;
-import com.template.androidbasicapp.databinding.FragmentGalleryBinding;
-import com.template.androidbasicapp.ui.viewmodel.GalleryViewModel;
+import com.template.androidbasicapp.ui.viewmodel.NetworkDemoViewModel;
 
-public class GalleryFragment extends Fragment {
+public class NetworkDemoFragment extends Fragment {
 
-    private FragmentGalleryBinding binding;
-    private GalleryViewModel viewModel;
+    private FragmentNetworkDemoBinding binding;
 
-    public GalleryFragment() {
-        super(R.layout.fragment_gallery);
+    private NetworkDemoViewModel viewModel;
+
+    public NetworkDemoFragment() {
+        super(R.layout.fragment_network_demo);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        viewModel = new ViewModelProvider(this).get(GalleryViewModel.class);
-        binding = FragmentGalleryBinding.bind(view);
-        final TextView textView = binding.textGallery;
+        viewModel = new ViewModelProvider(this).get(NetworkDemoViewModel.class);
+        binding = FragmentNetworkDemoBinding.bind(view);
+        final TextView textView = binding.textHome;
         viewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
     }
 
