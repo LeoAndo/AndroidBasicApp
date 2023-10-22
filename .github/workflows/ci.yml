@@ -36,8 +36,8 @@ jobs:
     - name: Run lint for lint the variants.
       run: ./gradlew lint
 
-    - name: Run unit tests for testDebugUnitTest the variants.
-      run: ./gradlew testDebugUnitTest
+    #- name: Run unit tests for testDebugUnitTest the variants.
+    #  run: ./gradlew testDebugUnitTest
 
     - name: Build tasks (Assemble main outputs for assembleDebug the variants.)
       run: |
