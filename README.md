@@ -1,6 +1,7 @@
 # Overview
 
 Kotlin未経験で、Android Javaでアプリ開発したい人向けのテンプレートプロジェクト<br>
+productFlavorsでテンプレートを切り替える仕組みにしています。<br>
 
 # capture: pixel3a API 29
 
