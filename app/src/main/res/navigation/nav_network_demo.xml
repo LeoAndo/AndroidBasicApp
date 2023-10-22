@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_network_demo"
+    app:startDestination="@id/networkDemoFragment">
+
+    <fragment
+        android:id="@+id/networkDemoFragment"
+        android:name="com.template.androidbasicapp.ui.fragment.NetworkDemoFragment"
+        android:label="@string/menu_network_demo"
+        tools:layout="@layout/fragment_network_demo">
+        <action
+            android:id="@+id/action_networkDemoFragment_to_secondFragment"
+            app:destination="@id/secondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="com.template.androidbasicapp.ui.fragment.SecondFragment"
+        android:label="@string/second"
+        tools:layout="@layout/fragment_second">
+        <argument
+            android:name="message"
+            app:argType="string" />
+    </fragment>
+</navigation>

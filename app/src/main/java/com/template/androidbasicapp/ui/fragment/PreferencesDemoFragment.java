@@ -13,6 +13,9 @@ import com.template.androidbasicapp.R;
 import com.template.androidbasicapp.databinding.FragmentPreferencesDemoBinding;
 import com.template.androidbasicapp.ui.viewmodel.PreferencesDemoViewModel;
 
+/**
+ * 機能のTop画面
+ */
 public class PreferencesDemoFragment extends Fragment {
 
     private FragmentPreferencesDemoBinding binding;

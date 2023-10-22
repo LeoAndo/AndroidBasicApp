@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_preferences_demo"
+    app:startDestination="@id/preferencesDemoFragment">
+    <fragment
+        android:id="@+id/preferencesDemoFragment"
+        android:name="com.template.androidbasicapp.ui.fragment.PreferencesDemoFragment"
+        android:label="@string/menu_preferences_demo"
+        tools:layout="@layout/fragment_preferences_demo" />
+</navigation>

@@ -5,21 +5,7 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/nav_network_demo">
 
-    <fragment
-        android:id="@+id/nav_network_demo"
-        android:name="com.template.androidbasicapp.ui.fragment.NetworkDemoFragment"
-        android:label="@string/menu_network_demo"
-        tools:layout="@layout/fragment_network_demo" />
-
-    <fragment
-        android:id="@+id/nav_database_demo"
-        android:name="com.template.androidbasicapp.ui.fragment.DatabaseDemoFragment"
-        android:label="@string/menu_database_demo"
-        tools:layout="@layout/fragment_database_demo" />
-
-    <fragment
-        android:id="@+id/nav_preferences_demo"
-        android:name="com.template.androidbasicapp.ui.fragment.PreferencesDemoFragment"
-        android:label="@string/menu_preferences_demo"
-        tools:layout="@layout/fragment_preferences_demo" />
+    <include app:graph="@navigation/nav_network_demo" />
+    <include app:graph="@navigation/nav_database_demo" />
+    <include app:graph="@navigation/nav_preferences_demo" />
 </navigation>
