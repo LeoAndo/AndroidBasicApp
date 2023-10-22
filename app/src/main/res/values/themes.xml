@@ -4,10 +4,6 @@
         <!-- Light Theme / Dark Theme共通の設定値はここに追加してください. -->
     </style>
 
-    <style name="Theme.AndroidBasicApp.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />
-
-    <style name="Theme.AndroidBasicApp.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light" />
-
     <style name="Theme.AndroidBasicApp" parent="Base.Theme.AndroidBasicApp">
         <!-- Light Theme固有の設定値はここに追加してください. -->
 
