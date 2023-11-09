@@ -8,4 +8,5 @@
     <include app:graph="@navigation/nav_network_demo" />
     <include app:graph="@navigation/nav_database_demo" />
     <include app:graph="@navigation/nav_preferences_demo" />
+    <include app:graph="@navigation/nav_notification_demo" />
 </navigation>

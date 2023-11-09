@@ -37,6 +37,14 @@
             android:layout_marginTop="12dp"
             android:minWidth="280dp"
             android:text="Preferences Demo画面へ" />
+
+        <Button
+            android:id="@+id/btn_notification_demo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:minWidth="280dp"
+            android:text="Notification Demo画面へ" />
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
