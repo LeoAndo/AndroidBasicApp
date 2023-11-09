@@ -3,6 +3,9 @@
 
     <application>
         <activity
+            android:name=".NotificationDemoActivity"
+            android:exported="false" />
+        <activity
             android:name=".PreferencesDemoActivity"
             android:exported="false" />
         <activity
