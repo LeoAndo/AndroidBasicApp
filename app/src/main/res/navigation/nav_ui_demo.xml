@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_ui_demo"
+    app:startDestination="@id/uiDemoFragment">
+
+    <fragment
+        android:id="@+id/uiDemoFragment"
+        android:name="com.template.androidbasicapp.ui.fragment.UiDemoFragment"
+        android:label="@string/menu_ui_demo"
+        tools:layout="@layout/fragment_ui_demo" />
+</navigation>
