@@ -16,5 +16,13 @@
             android:id="@+id/nav_preferences_demo"
             android:icon="@drawable/ic_menu_preferences_demo"
             android:title="@string/menu_preferences_demo" />
+        <item
+            android:id="@+id/nav_notification_demo"
+            android:icon="@drawable/ic_menu_notification_demo"
+            android:title="@string/menu_notification_demo" />
+        <item
+            android:id="@+id/nav_ui_demo"
+            android:icon="@drawable/ic_menu_ui_demo"
+            android:title="@string/menu_ui_demo" />
     </group>
 </menu>
