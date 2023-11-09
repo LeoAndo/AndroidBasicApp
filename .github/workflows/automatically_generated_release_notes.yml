@@ -1,0 +1,17 @@
+# https://docs.github.com/ja/repositories/releasing-projects-on-github/automatically-generated-release-notes
+changelog:
+  exclude:
+    authors:
+      - github-actions
+    labels:
+      - ignore-for-release
+  categories:
+    - title: New Features 🎉
+      labels:
+        - "enhancement"
+    - title: Bug Fix 💊
+      labels:
+        - "bug"
+    - title: Other Changes 🛠
+      labels:
+        - "*"
