@@ -28,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
         binding.btnNotificationDemo.setOnClickListener(v -> {
             NotificationDemoActivity.start(this);
         });
+        binding.btnUiDemo.setOnClickListener(v -> {
+            UiDemoActivity.start(this);
+        });
 
         binding.fab.setOnClickListener(view -> {
             Snackbar.make(view, "Fabボタンが押されました", Snackbar.LENGTH_SHORT).show();

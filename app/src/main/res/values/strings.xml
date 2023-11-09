@@ -8,4 +8,5 @@
     <string name="menu_preferences_demo">Preferences</string>
     <string name="menu_notification_demo">Notification</string>
     <string name="second">Fragmentの遷移テスト</string>
+    <string name="menu_ui_demo">UI</string>
 </resources>
