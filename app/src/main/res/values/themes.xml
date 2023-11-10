@@ -1,12 +1,14 @@
 <resources>
 
     <style name="Base.Theme.AndroidBasicApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Light Theme / Dark Theme共通の設定値はここに追加してください. -->
-        <!-- TODO アプリで使う全てのOutlinedButtonのデザインをカスタマイズする場合は、以下のコメントを解除してください -START -->
-<!--        <item name="materialButtonOutlinedStyle">@style/Widget.AndroidBasicApp.Button.OutlinedButton</item>-->
-        <!-- END -->
+        <!-- TODO 全アプリバージョン & Light Theme / Dark Theme共通の設定値はここに追加してください. -->
     </style>
 
+    <style name="Theme.AndroidBasicApp" parent="Base.Theme.AndroidBasicApp">
+        <!-- TODO 全アプリバージョン & Light Theme固有の設定値はここに追加してください. -->
+    </style>
+
+    <!-- Buttonのスタイル定義 -START -->
     <!-- https://m3.material.io/components/buttons/specs -->
     <style name="Widget.AndroidBasicApp.Button.OutlinedButton" parent="Widget.Material3.Button.OutlinedButton">
         <!-- Shapeの丸み設定を0にする -->
@@ -15,48 +17,29 @@
         <item name="backgroundTint">@color/my_text_button_background_color_selector1</item>
     </style>
 
-    <style name="Theme.AndroidBasicApp" parent="Base.Theme.AndroidBasicApp">
-        <!-- Light Theme固有の設定値はここに追加してください. -->
-
-        <!-- TODO Material 3デザインをカスタマイズする場合は、以下のコメントを解除してください -START -->
-        <!--
-        <item name="colorPrimary">@color/md_theme_light_primary</item>
-        <item name="colorOnPrimary">@color/md_theme_light_onPrimary</item>
-        <item name="colorPrimaryContainer">@color/md_theme_light_primaryContainer</item>
-        <item name="colorOnPrimaryContainer">@color/md_theme_light_onPrimaryContainer</item>
-        <item name="colorSecondary">@color/md_theme_light_secondary</item>
-        <item name="colorOnSecondary">@color/md_theme_light_onSecondary</item>
-        <item name="colorSecondaryContainer">@color/md_theme_light_secondaryContainer</item>
-        <item name="colorOnSecondaryContainer">@color/md_theme_light_onSecondaryContainer</item>
-        <item name="colorTertiary">@color/md_theme_light_tertiary</item>
-        <item name="colorOnTertiary">@color/md_theme_light_onTertiary</item>
-        <item name="colorTertiaryContainer">@color/md_theme_light_tertiaryContainer</item>
-        <item name="colorOnTertiaryContainer">@color/md_theme_light_onTertiaryContainer</item>
-        <item name="colorError">@color/md_theme_light_error</item>
-        <item name="colorErrorContainer">@color/md_theme_light_errorContainer</item>
-        <item name="colorOnError">@color/md_theme_light_onError</item>
-        <item name="colorOnErrorContainer">@color/md_theme_light_onErrorContainer</item>
-        <item name="android:colorBackground">@color/md_theme_light_background</item>
-        <item name="colorOnBackground">@color/md_theme_light_onBackground</item>
-        <item name="colorSurface">@color/md_theme_light_surface</item>
-        <item name="colorOnSurface">@color/md_theme_light_onSurface</item>
-        <item name="colorSurfaceVariant">@color/md_theme_light_surfaceVariant</item>
-        <item name="colorOnSurfaceVariant">@color/md_theme_light_onSurfaceVariant</item>
-        <item name="colorOutline">@color/md_theme_light_outline</item>
-        <item name="colorOnSurfaceInverse">@color/md_theme_light_inverseOnSurface</item>
-        <item name="colorSurfaceInverse">@color/md_theme_light_inverseSurface</item>
-        <item name="colorCustomColor1">#216c24</item>
-        <item name="colorOnCustomColor1">#ffffff</item>
-        <item name="colorCustomColor1Container">#a6f69c</item>
-        <item name="colorOnCustomColor1Container">#002203</item>
-        <item name="harmonizeCustomColor1">false</item>
-        <item name="colorCustomColor2">#9a4608</item>
-        <item name="colorOnCustomColor2">#ffffff</item>
-        <item name="colorCustomColor2Container">#ffdbca</item>
-        <item name="colorOnCustomColor2Container">#331200</item>
-        <item name="harmonizeCustomColor2">false</item>
-        <item name="colorPrimaryInverse">@color/md_theme_light_inversePrimary</item>
-        -->
-        <!-- END -->
+    <style name="Widget.AndroidBasicApp.Button" parent="Widget.Material3.Button">
+        <!-- Shapeをカスタマイズする -->
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.AndroidBasicApp.Button
+        </item>
+        <!-- ボタン色をカスタマイズする -->
+        <item name="backgroundTint">@color/my_btn_bg_color_selector1</item>
     </style>
+    <!-- END -->
+
+    <!-- FloatingActionButtonのスタイル定義 -START-->
+    <style name="Widget.AndroidBasicApp.FloatingActionButton.Tertiary" parent="Widget.Material3.FloatingActionButton.Tertiary">
+        <!-- default m3_sys_elevation_level3 -->
+        <item name="elevation">@dimen/m3_sys_elevation_level5</item>
+    </style>
+    <!-- END -->
+
+    <!-- Shapeのスタイル定義 -START -->
+    <!-- https://m3.material.io/styles/shape/shape-scale-tokens -->
+    <style name="ShapeAppearanceOverlay.AndroidBasicApp.Button" parent="ShapeAppearanceOverlay.Material3.Button">
+        <!--cut or rounded. default: rounded -->
+        <item name="cornerFamily">cut</item>
+        <!-- default: 50% -->
+        <item name="cornerSize">12dp</item>
+    </style>
+    <!-- END -->
 </resources>
