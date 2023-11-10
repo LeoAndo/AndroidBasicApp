@@ -6,12 +6,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.template.androidbasicapp.R;
-import com.template.androidbasicapp.databinding.FragmentNotificationDemoBinding;
 import com.template.androidbasicapp.databinding.FragmentUiDemoBinding;
 
 public class UiDemoFragment extends Fragment {

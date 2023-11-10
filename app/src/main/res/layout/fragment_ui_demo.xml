@@ -19,6 +19,7 @@
             android:layout_height="wrap_content"
             android:text="MaterialButtonToggleGroup" />
 
+        <!-- 複数選択バージョン -->
         <com.google.android.material.button.MaterialButtonToggleGroup
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -28,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:minWidth="140dp"
                 android:text="Button 1" />
-            <!-- ボタン色のカスタマイズには、backgroundTintを使う -->
+
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -37,13 +38,17 @@
                 android:text="Button 2" />
         </com.google.android.material.button.MaterialButtonToggleGroup>
 
-        <!-- 単一選択のMaterialButtonToggleGroup -->
+        <!-- 単一選択バージョン -->
         <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:checkedButton="@+id/btn1"
+            app:selectionRequired="true"
             app:singleSelection="true">
 
             <Button
+                android:id="@+id/btn1"
                 style="?attr/materialButtonOutlinedStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -51,6 +56,7 @@
                 android:text="Button 1" />
 
             <Button
+                android:id="@+id/btn2"
                 style="?attr/materialButtonOutlinedStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -61,23 +67,28 @@
 
         <!-- 単一選択 & Button Styleのカスタマイズ -->
         <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/group2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:checkedButton="@+id/btn4"
+            app:selectionRequired="true"
             app:singleSelection="true">
 
             <Button
+                android:id="@+id/btn3"
                 style="@style/Widget.AndroidBasicApp.Button.OutlinedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:minWidth="140dp"
-                android:text="Button 1" />
+                android:text="Button 3" />
 
             <Button
+                android:id="@+id/btn4"
                 style="@style/Widget.AndroidBasicApp.Button.OutlinedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:minWidth="140dp"
-                android:text="Button 2" />
+                android:text="Button 4" />
         </com.google.android.material.button.MaterialButtonToggleGroup>
     </LinearLayout>
 </ScrollView>
