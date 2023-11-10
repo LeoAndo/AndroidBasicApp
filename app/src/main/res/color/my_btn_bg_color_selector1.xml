@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:color="#FFDAD6" android:state_enabled="true" />
-    <item android:alpha="0.12" android:color="?attr/colorOnSurface" />
+    <!--default: ?attr/colorContainer (?attr/colorPrimary) -->
+    <item android:color="?attr/colorPrimaryDark" android:state_enabled="true" />
+    <item android:alpha="@dimen/material_emphasis_disabled_background" android:color="?attr/colorOnSurface" />
 </selector>
