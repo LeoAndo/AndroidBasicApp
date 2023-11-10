@@ -5,7 +5,7 @@ productFlavorsでテンプレートを切り替える仕組みにしています
 使い方など、詳しいことは以下のWikiにまとめています。<br>
 https://github.com/LeoAndo/AndroidBasicApp/wiki<br>
 
-# capture: pixel3a API 29
+# capture: pixel3a API 30
 
 | simple                                                 | bottmbar                                     | drawer                                    |
 --------------------------------------------------------|----------------------------------------------|-------------------------------------------
