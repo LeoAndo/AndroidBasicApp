@@ -1,7 +1,18 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
 
     <style name="Base.Theme.AndroidBasicApp" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Light Theme / Dark Theme共通の設定値はここに追加してください. -->
+        <!-- TODO アプリで使う全てのOutlinedButtonのデザインをカスタマイズする場合は、以下のコメントを解除してください -START -->
+<!--        <item name="materialButtonOutlinedStyle">@style/Widget.AndroidBasicApp.Button.OutlinedButton</item>-->
+        <!-- END -->
+    </style>
+
+    <!-- https://m3.material.io/components/buttons/specs -->
+    <style name="Widget.AndroidBasicApp.Button.OutlinedButton" parent="Widget.Material3.Button.OutlinedButton">
+        <!-- Shapeの丸み設定を0にする -->
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.Material3.Corner.None</item>
+        <!-- ボタン色をカスタマイズする -->
+        <item name="backgroundTint">@color/my_text_button_background_color_selector1</item>
     </style>
 
     <style name="Theme.AndroidBasicApp" parent="Base.Theme.AndroidBasicApp">
