@@ -2,7 +2,7 @@
 
 # 修正内容 (必須)
 
-# capture (任意)
+# capture: pixel3a API 30 (任意)
 
 | before | after |
 |:---|:---:|
