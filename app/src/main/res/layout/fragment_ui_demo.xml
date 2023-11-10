@@ -13,6 +13,12 @@
         android:layout_margin="12dp"
         android:orientation="vertical">
 
+        <TextView
+            style="?attr/textAppearanceHeadline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MaterialButtonToggleGroup" />
+
         <com.google.android.material.button.MaterialButtonToggleGroup
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -49,6 +55,27 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/my_text_button_background_color_selector1"
+                android:minWidth="140dp"
+                android:text="Button 2" />
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        <!-- 単一選択 & Button Styleのカスタマイズ -->
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:singleSelection="true">
+
+            <Button
+                style="@style/Widget.AndroidBasicApp.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="140dp"
+                android:text="Button 1" />
+
+            <Button
+                style="@style/Widget.AndroidBasicApp.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:minWidth="140dp"
                 android:text="Button 2" />
         </com.google.android.material.button.MaterialButtonToggleGroup>
