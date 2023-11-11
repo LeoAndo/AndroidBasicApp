@@ -14,7 +14,7 @@
             @style/Widget.AndroidBasicApp.Button.OutlinedButton
         </item>
         <item name="floatingActionButtonStyle">
-            @style/Widget.AndroidBasicApp.FloatingActionButton.Tertiary
+            @style/Widget.AndroidBasicApp.FloatingActionButton.Primary
         </item>
         <item name="fontFamily">casual</item>
     </style>
@@ -48,17 +48,25 @@
         <item name="colorOutline">@color/md_theme_light_outline</item>
         <item name="colorOnSurfaceInverse">@color/md_theme_light_inverseOnSurface</item>
         <item name="colorSurfaceInverse">@color/md_theme_light_inverseSurface</item>
-        <item name="colorCustomColor1">#216c24</item>
-        <item name="colorOnCustomColor1">#ffffff</item>
-        <item name="colorCustomColor1Container">#a6f69c</item>
-        <item name="colorOnCustomColor1Container">#002203</item>
-        <item name="harmonizeCustomColor1">false</item>
-        <item name="colorCustomColor2">#9a4608</item>
-        <item name="colorOnCustomColor2">#ffffff</item>
-        <item name="colorCustomColor2Container">#ffdbca</item>
-        <item name="colorOnCustomColor2Container">#331200</item>
-        <item name="harmonizeCustomColor2">false</item>
         <item name="colorPrimaryInverse">@color/md_theme_light_inversePrimary</item>
+        <!-- END -->
+        <!-- カスタムカラー -START -->
+        <item name="colorCustomColor1">#2f6b26</item>
+        <item name="colorOnCustomColor1">#ffffff</item>
+        <item name="colorCustomColor1Container">#b1f49d</item>
+        <item name="colorOnCustomColor1Container">#002200</item>
+        <item name="colorCustomColor2">#a2219e</item>
+        <item name="colorOnCustomColor2">#ffffff</item>
+        <item name="colorCustomColor2Container">#ffd7f5</item>
+        <item name="colorOnCustomColor2Container">#380037</item>
+        <item name="colorCustomColor3">#9a4525</item>
+        <item name="colorOnCustomColor3">#ffffff</item>
+        <item name="colorCustomColor3Container">#ffdbcf</item>
+        <item name="colorOnCustomColor3Container">#390c00</item>
+        <item name="colorCustomColor4">#00658e</item>
+        <item name="colorOnCustomColor4">#ffffff</item>
+        <item name="colorCustomColor4Container">#c6e7ff</item>
+        <item name="colorOnCustomColor4Container">#001e2e</item>
         <!-- END -->
     </style>
 </resources>

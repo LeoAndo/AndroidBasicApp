@@ -1,6 +1,24 @@
 <resources>
 
-    <style name="Theme.AndroidBasicApp" parent="Base.Theme.AndroidBasicApp">
+    <style name="Theme.AndroidBasicApp" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- TODO 全アプリバージョン & Dark Theme固有の設定値はここに追加してください. -->
+        <!-- https://m3.material.io/theme-builder を使ってカスタムカラーを作成 -START -->
+        <item name="colorCustomColor1">#19e600</item>
+        <item name="colorOnCustomColor1">#023900</item>
+        <item name="colorCustomColor1Container">#055300</item>
+        <item name="colorOnCustomColor1Container">#78ff5e</item>
+        <item name="colorCustomColor2">#d4ca52</item>
+        <item name="colorOnCustomColor2">#353100</item>
+        <item name="colorCustomColor2Container">#4d4800</item>
+        <item name="colorOnCustomColor2Container">#f1e66a</item>
+        <item name="colorCustomColor3">#ffb4ab</item>
+        <item name="colorOnCustomColor3">#690005</item>
+        <item name="colorCustomColor3Container">#93000b</item>
+        <item name="colorOnCustomColor3Container">#ffdad6</item>
+        <item name="colorCustomColor4">#ffb596</item>
+        <item name="colorOnCustomColor4">#581e00</item>
+        <item name="colorCustomColor4Container">#7d2d00</item>
+        <item name="colorOnCustomColor4Container">#ffdbcd</item>
+        <!-- END -->
     </style>
 </resources>

@@ -29,17 +29,25 @@
         <item name="colorOutline">@color/md_theme_dark_outline</item>
         <item name="colorOnSurfaceInverse">@color/md_theme_dark_inverseOnSurface</item>
         <item name="colorSurfaceInverse">@color/md_theme_dark_inverseSurface</item>
-        <item name="colorCustomColor1">#8bd983</item>
-        <item name="colorOnCustomColor1">#003908</item>
-        <item name="colorCustomColor1Container">#00530f</item>
-        <item name="colorOnCustomColor1Container">#a6f69c</item>
-        <item name="harmonizeCustomColor1">false</item>
-        <item name="colorCustomColor2">#ffb68e</item>
-        <item name="colorOnCustomColor2">#542200</item>
-        <item name="colorCustomColor2Container">#773300</item>
-        <item name="colorOnCustomColor2Container">#ffdbca</item>
-        <item name="harmonizeCustomColor2">false</item>
         <item name="colorPrimaryInverse">@color/md_theme_dark_inversePrimary</item>
+        <!-- END -->
+        <!-- main/res/values-night/themes.xmlの設定値 カスタムカラーを上書きする -START -->
+        <item name="colorCustomColor1">#95d784</item>
+        <item name="colorOnCustomColor1">#003a00</item>
+        <item name="colorCustomColor1Container">#15520f</item>
+        <item name="colorOnCustomColor1Container">#b1f49d</item>
+        <item name="colorCustomColor2">#ffabf2</item>
+        <item name="colorOnCustomColor2">#5b005a</item>
+        <item name="colorCustomColor2Container">#810080</item>
+        <item name="colorOnCustomColor2Container">#ffd7f5</item>
+        <item name="colorCustomColor3">#ffb59c</item>
+        <item name="colorOnCustomColor3">#5c1900</item>
+        <item name="colorCustomColor3Container">#7c2e0f</item>
+        <item name="colorOnCustomColor3Container">#ffdbcf</item>
+        <item name="colorCustomColor4">#83cfff</item>
+        <item name="colorOnCustomColor4">#00344b</item>
+        <item name="colorCustomColor4Container">#004c6c</item>
+        <item name="colorOnCustomColor4Container">#c6e7ff</item>
         <!-- END -->
     </style>
 </resources>
