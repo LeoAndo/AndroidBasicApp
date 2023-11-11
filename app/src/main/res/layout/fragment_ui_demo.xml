@@ -7,10 +7,10 @@
     tools:context=".ui.fragment.UiDemoFragment">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
         android:layout_margin="12dp"
+        android:gravity="center_horizontal"
         android:orientation="vertical">
 
         <TextView
@@ -90,5 +90,80 @@
                 android:minWidth="140dp"
                 android:text="Button 4" />
         </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        <TextView
+            style="?attr/textAppearanceHeadline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Custom Colors" />
+
+        <com.google.android.material.card.MaterialCardView
+            style="?attr/materialCardViewFilledStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:minHeight="40dp"
+            app:cardBackgroundColor="?attr/colorCustomColor1Container">
+
+            <TextView
+                style="?attr/textAppearanceHeadline6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="colorOnCustomColor1Container"
+                android:textAlignment="center"
+                android:textColor="?attr/colorOnCustomColor1Container" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            style="?attr/materialCardViewFilledStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:minHeight="40dp"
+            app:cardBackgroundColor="?attr/colorCustomColor2Container">
+
+            <TextView
+                style="?attr/textAppearanceHeadline6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="colorOnCustomColor2Container"
+                android:textAlignment="center"
+                android:textColor="?attr/colorOnCustomColor2Container" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            style="?attr/materialCardViewFilledStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:minHeight="40dp"
+            app:cardBackgroundColor="?attr/colorCustomColor3Container">
+
+            <TextView
+                style="?attr/textAppearanceHeadline6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="colorOnCustomColor3Container"
+                android:textAlignment="center"
+                android:textColor="?attr/colorOnCustomColor3Container" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            style="?attr/materialCardViewFilledStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:minHeight="40dp"
+            app:cardBackgroundColor="?attr/colorCustomColor4Container">
+
+            <TextView
+                style="?attr/textAppearanceHeadline6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="colorOnCustomColor4Container"
+                android:textAlignment="center"
+                android:textColor="?attr/colorOnCustomColor4Container" />
+        </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
 </ScrollView>

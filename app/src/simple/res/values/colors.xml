@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- https://m3.material.io/theme-builder を使ってカラーパレッドを作成 -START -->
-    <color name="seed">#008cc8</color>
     <color name="md_theme_light_primary">#006491</color>
     <color name="md_theme_light_onPrimary">#FFFFFF</color>
     <color name="md_theme_light_primaryContainer">#C9E6FF</color>
@@ -62,7 +61,5 @@
     <color name="md_theme_dark_surfaceTint">#8ACEFF</color>
     <color name="md_theme_dark_outlineVariant">#41474D</color>
     <color name="md_theme_dark_scrim">#000000</color>
-    <color name="CustomColor1">#005610</color>
-    <color name="CustomColor2">#903F00</color>
     <!-- END -->
 </resources>
