@@ -25,12 +25,14 @@
             android:layout_height="wrap_content">
 
             <Button
+                style="?attr/materialButtonOutlinedStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:minWidth="140dp"
                 android:text="Button 1" />
 
             <Button
+                style="?attr/materialButtonOutlinedStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/my_btn_bg_color_selector1"
