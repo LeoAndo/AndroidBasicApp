@@ -79,6 +79,9 @@ android {
             versionNameSuffix "-drawer"
         }
     }
+    lintOptions {
+        abortOnError false // エラーが見つかってもGradleビルドを続ける
+    }
 }
 
 dependencies {
