@@ -35,7 +35,7 @@
                 style="?attr/materialButtonOutlinedStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/my_btn_bg_color_selector1"
+                android:backgroundTint="@color/my_text_button_background_color_selector1"
                 android:minWidth="140dp"
                 android:text="Button 2" />
         </com.google.android.material.button.MaterialButtonToggleGroup>
