@@ -4,6 +4,7 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
+        <!-- BottomNavigationViewは5つまでアイテムを追加することができる. -->
         <item
             android:id="@+id/nav_network_demo"
             android:icon="@drawable/ic_menu_network_demo"

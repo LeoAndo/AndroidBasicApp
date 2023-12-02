@@ -28,10 +28,12 @@ jobs:
         ANDROID_STORE_PASSWORD: ${{ secrets.ANDROID_STORE_PASSWORD }}
         ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
         ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        MAPS_API_KEY: ${{ secrets.MAPS_API_KEY }}
       run: |
         echo "ANDROID_STORE_PASSWORD=$ANDROID_STORE_PASSWORD" >> local.properties
         echo "ANDROID_KEY_ALIAS=$ANDROID_KEY_ALIAS" >> local.properties
         echo "ANDROID_KEY_PASSWORD=$ANDROID_KEY_PASSWORD" >> local.properties
+        echo "MAPS_API_KEY=$MAPS_API_KEY" >> local.properties
 
     - name: Release Build tasks (apk and aab)
       run: |
