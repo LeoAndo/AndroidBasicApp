@@ -9,5 +9,22 @@
         android:id="@+id/uiDemoFragment"
         android:name="com.template.androidbasicapp.ui.fragment.UiDemoFragment"
         android:label="@string/menu_ui_demo"
-        tools:layout="@layout/fragment_ui_demo" />
+        tools:layout="@layout/fragment_ui_demo">
+        <action
+            android:id="@+id/action_uiDemoFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.template.androidbasicapp.ui.fragment.MapsFragment"
+        android:label="@string/menu_maps_demo"
+        tools:layout="@layout/fragment_maps">
+        <argument
+            android:name="latitude"
+            app:argType="float" />
+        <argument
+            android:name="longitude"
+            app:argType="float" />
+    </fragment>
 </navigation>

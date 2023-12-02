@@ -5,9 +5,11 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.View;
 
+import com.template.androidbasicapp.BuildConfig;
 import com.template.androidbasicapp.R;
 import com.template.androidbasicapp.databinding.FragmentUiDemoBinding;
 
@@ -29,6 +31,14 @@ public class UiDemoFragment extends Fragment {
         final String pokemon = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/150.png";
         binding.imageNetwork.setImageUrl(pokemon);
         binding.imageNetworkPlaceholder.setImageUrl(null);
+
+        if (!BuildConfig.FLAVOR.equals("simple")) {
+            binding.map.setOnClickListener(v -> {
+                NavHostFragment.findNavController(this).navigate(UiDemoFragmentDirections.actionUiDemoFragmentToMapsFragment(-34, 151));
+            });
+        } else {
+            binding.map.setVisibility(View.INVISIBLE);
+        }
     }
 
     /**
