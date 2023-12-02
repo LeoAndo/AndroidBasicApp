@@ -53,6 +53,14 @@
             android:layout_marginTop="12dp"
             android:minWidth="280dp"
             android:text="Ui Demo画面へ" />
+
+        <Button
+            android:id="@+id/btn_map"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:minWidth="280dp"
+            android:text="Map画面へ" />
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
