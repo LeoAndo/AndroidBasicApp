@@ -3,6 +3,9 @@
 
     <application>
         <activity
+            android:name=".MapsActivity"
+            android:exported="false" />
+        <activity
             android:name=".UiDemoActivity"
             android:exported="false" />
         <activity
