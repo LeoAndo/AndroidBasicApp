@@ -74,14 +74,11 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.VH> {
         public VH(@NonNull final View itemView) {
             super(itemView);
             textTitle = itemView.findViewById(R.id.title);
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(@NonNull final View v) {
-                    final int position = getAdapterPosition();
-                    Log.d(TAG, "onClick position-> " + position);
-                    if (position != NO_POSITION && listener != null) {
-                        listener.onItemClick(items.get(position));
-                    }
+            itemView.setOnClickListener(v -> {
+                final int position = getAdapterPosition();
+                Log.d(TAG, "onClick position-> " + position);
+                if (position != NO_POSITION && listener != null) {
+                    listener.onItemClick(items.get(position));
                 }
             });
         }
