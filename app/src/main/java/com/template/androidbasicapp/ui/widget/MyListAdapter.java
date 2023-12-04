@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.template.androidbasicapp.R;
@@ -18,7 +19,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.VH> {
+    @NonNull
     public final List<Item> items;
+    @Nullable
     private OnItemClickListener listener;
 
     public MyListAdapter(@NonNull final List<Item> items) {
@@ -44,7 +47,7 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.VH> {
     }
 
     public void updateItem(final int position) {
-        if(getItemCount() <= 0) return;
+        if (getItemCount() <= 0) return;
 
         final Item updateItem = items.get(position);
         updateItem.setTitle("update: " + updateItem.getTitle());
@@ -58,8 +61,8 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.VH> {
     }
 
     public void removeItem(final int index) {
-        if(getItemCount() <= 0) return;
-        
+        if (getItemCount() <= 0) return;
+
         items.remove(index);
         notifyItemRemoved(index);
     }
@@ -76,7 +79,7 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.VH> {
                 public void onClick(@NonNull final View v) {
                     final int position = getAdapterPosition();
                     Log.d(TAG, "onClick position-> " + position);
-                    if (position != NO_POSITION) {
+                    if (position != NO_POSITION && listener != null) {
                         listener.onItemClick(items.get(position));
                     }
                 }
@@ -88,7 +91,7 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.VH> {
         void onItemClick(@NonNull final Item item);
     }
 
-    public void setOnItemClickListener(OnItemClickListener l) {
+    public void setOnItemClickListener(@Nullable final OnItemClickListener l) {
         this.listener = l;
     }
 }
