@@ -59,8 +59,8 @@ public class UiDemoFragment extends Fragment {
         binding.listHorizontal.setAdapter(adapter);
         // 縦向きの場合 -> LinearLayoutManager.VERTICALを指定する
         binding.listHorizontal.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false));
-        adapter.setOnItemClickListener(item -> {
-            Snackbar.make(binding.getRoot(), item.getTitle(), Snackbar.LENGTH_LONG).show();
+        adapter.setOnItemClickListener((item, position) -> {
+            Snackbar.make(binding.getRoot(), position + " : " + item.getTitle(), Snackbar.LENGTH_LONG).show();
         });
 
         binding.insert.setOnClickListener(v -> {

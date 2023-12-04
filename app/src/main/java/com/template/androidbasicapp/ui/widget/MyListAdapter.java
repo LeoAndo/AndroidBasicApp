@@ -20,7 +20,7 @@ import java.util.List;
 
 public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.VH> {
     @NonNull
-    public final List<Item> items;
+    private final List<Item> items;
     @Nullable
     private OnItemClickListener listener;
 
@@ -54,17 +54,17 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.VH> {
         notifyItemChanged(position);
     }
 
-    public void insertItem(final int index, @NonNull final Item newItem) {
-        items.add(index, newItem);
-        notifyItemInserted(index); // 変更がある箇所だけ差分更新する.
+    public void insertItem(final int position, @NonNull final Item newItem) {
+        items.add(position, newItem);
+        notifyItemInserted(position); // 変更がある箇所だけ差分更新する.
         // notifyDataSetChanged(); // これだとリスト全体の更新が走る.
     }
 
-    public void removeItem(final int index) {
+    public void removeItem(final int position) {
         if (getItemCount() <= 0) return;
 
-        items.remove(index);
-        notifyItemRemoved(index);
+        items.remove(position);
+        notifyItemRemoved(position);
     }
 
     class VH extends RecyclerView.ViewHolder {
@@ -78,14 +78,14 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.VH> {
                 final int position = getAdapterPosition();
                 Log.d(TAG, "onClick position-> " + position);
                 if (position != NO_POSITION && listener != null) {
-                    listener.onItemClick(items.get(position));
+                    listener.onItemClick(items.get(position), position);
                 }
             });
         }
     }
 
     public interface OnItemClickListener {
-        void onItemClick(@NonNull final Item item);
+        void onItemClick(@NonNull final Item item, final int position);
     }
 
     public void setOnItemClickListener(@Nullable final OnItemClickListener l) {
