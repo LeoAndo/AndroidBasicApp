@@ -94,7 +94,7 @@ public class UiDemoFragment extends Fragment {
         // END
 
         // リストのフィルタ -START
-        List<Pokemon> pokemonItems = TestData.createPokemonList();
+        final List<Pokemon> pokemonItems = TestData.createPokemonList();
         final PokemonListAdapter pokemonListAdapter = new PokemonListAdapter(pokemonItems);
         binding.listFilter.setAdapter(pokemonListAdapter);
         binding.listFilter.setLayoutManager(new GridLayoutManager(requireContext(), 3));
