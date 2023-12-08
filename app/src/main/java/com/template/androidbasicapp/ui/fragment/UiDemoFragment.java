@@ -11,18 +11,26 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.SystemClock;
 import android.view.View;
+import android.widget.ArrayAdapter;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.template.androidbasicapp.AppLogger;
 import com.template.androidbasicapp.BuildConfig;
 import com.template.androidbasicapp.R;
 import com.template.androidbasicapp.data.Item;
+import com.template.androidbasicapp.data.Pokemon;
+import com.template.androidbasicapp.data.PokemonType;
+import com.template.androidbasicapp.data.TestData;
 import com.template.androidbasicapp.databinding.FragmentUiDemoBinding;
 import com.template.androidbasicapp.ui.widget.MyListAdapter;
+import com.template.androidbasicapp.ui.widget.PokemonListAdapter;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class UiDemoFragment extends Fragment {
     private FragmentUiDemoBinding binding;
@@ -82,6 +90,36 @@ public class UiDemoFragment extends Fragment {
         binding.listGrid.setLayoutManager(new GridLayoutManager(requireContext(), 3));
         adapter.setOnItemClickListener((item, position) -> {
             Snackbar.make(binding.getRoot(), position + " : " + item.getTitle(), Snackbar.LENGTH_LONG).show();
+        });
+        // END
+
+        // リストのフィルタ -START
+        List<Pokemon> pokemonItems = TestData.createPokemonList();
+        final PokemonListAdapter pokemonListAdapter = new PokemonListAdapter(pokemonItems);
+        binding.listFilter.setAdapter(pokemonListAdapter);
+        binding.listFilter.setLayoutManager(new GridLayoutManager(requireContext(), 3));
+        pokemonListAdapter.setOnItemClickListener((item, position) -> {
+            Snackbar.make(binding.getRoot(), position + " : " + item.getName(), Snackbar.LENGTH_LONG).show();
+        });
+        final List<String> type = Arrays.stream(PokemonType.values()).map(PokemonType::getType).collect(Collectors.toList());
+        final String firstType = type.get(0);
+        binding.pokemonType.setAdapter(new ArrayAdapter<>(requireContext(), android.R.layout.simple_list_item_1, type));
+        binding.pokemonType.setText(firstType, false);
+        binding.pokemonType.setOnItemClickListener((parent, view1, position, id) -> {
+            pokemonItems.clear();
+            Optional<PokemonType> pokemonType = Arrays.stream(PokemonType.values()).filter(p -> p.ordinal() == position).findFirst();
+            if (pokemonType.isPresent()) {
+                switch (pokemonType.get()) {
+                    case ALL:
+                        pokemonItems.addAll(TestData.createPokemonList());
+                        break;
+                    default:
+                        List<Pokemon> pokemonList = TestData.createPokemonList().stream().filter(p -> p.getType() == pokemonType.get()).collect(Collectors.toList());
+                        pokemonItems.addAll(pokemonList);
+                        break;
+                }
+                binding.listFilter.getAdapter().notifyDataSetChanged();
+            }
         });
         // END
     }
