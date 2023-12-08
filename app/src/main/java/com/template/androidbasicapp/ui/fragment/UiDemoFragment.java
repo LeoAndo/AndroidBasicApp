@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.SystemClock;
@@ -74,6 +75,15 @@ public class UiDemoFragment extends Fragment {
             adapter.removeItem(0);
         });
         // リストの処理 -END
+
+        // grid表示のリスト -START
+        binding.listGrid.setAdapter(adapter);
+        // 縦向きの場合 -> LinearLayoutManager.VERTICALを指定する
+        binding.listGrid.setLayoutManager(new GridLayoutManager(requireContext(), 3));
+        adapter.setOnItemClickListener((item, position) -> {
+            Snackbar.make(binding.getRoot(), position + " : " + item.getTitle(), Snackbar.LENGTH_LONG).show();
+        });
+        // END
     }
 
     /**
