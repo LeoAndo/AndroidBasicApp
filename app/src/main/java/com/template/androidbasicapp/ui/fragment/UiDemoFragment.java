@@ -101,9 +101,9 @@ public class UiDemoFragment extends Fragment {
         pokemonListAdapter.setOnItemClickListener((item, position) -> {
             Snackbar.make(binding.getRoot(), position + " : " + item.getName(), Snackbar.LENGTH_LONG).show();
         });
-        final List<String> type = Arrays.stream(PokemonType.values()).map(PokemonType::getType).collect(Collectors.toList());
-        final String firstType = type.get(0);
-        binding.pokemonType.setAdapter(new ArrayAdapter<>(requireContext(), android.R.layout.simple_list_item_1, type));
+        final List<String> types = Arrays.stream(PokemonType.values()).map(PokemonType::getType).collect(Collectors.toList());
+        final String firstType = types.get(0);
+        binding.pokemonType.setAdapter(new ArrayAdapter<>(requireContext(), android.R.layout.simple_list_item_1, types));
         binding.pokemonType.setText(firstType, false);
         binding.pokemonType.setOnItemClickListener((parent, view1, position, id) -> {
             pokemonItems.clear();
@@ -114,7 +114,7 @@ public class UiDemoFragment extends Fragment {
                         pokemonItems.addAll(TestData.createPokemonList());
                         break;
                     default:
-                        List<Pokemon> pokemonList = TestData.createPokemonList().stream().filter(p -> p.getType() == pokemonType.get()).collect(Collectors.toList());
+                        final List<Pokemon> pokemonList = TestData.createPokemonList().stream().filter(p -> p.getType() == pokemonType.get()).collect(Collectors.toList());
                         pokemonItems.addAll(pokemonList);
                         break;
                 }
