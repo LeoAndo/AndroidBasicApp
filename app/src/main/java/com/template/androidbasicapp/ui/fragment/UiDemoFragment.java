@@ -88,9 +88,9 @@ public class UiDemoFragment extends Fragment {
         binding.listGrid.setAdapter(adapter);
         // 縦向きの場合 -> LinearLayoutManager.VERTICALを指定する
         binding.listGrid.setLayoutManager(new GridLayoutManager(requireContext(), 3));
-        adapter.setOnItemClickListener((item, position) -> {
-            Snackbar.make(binding.getRoot(), position + " : " + item.getTitle(), Snackbar.LENGTH_LONG).show();
-        });
+//        adapter.setOnItemClickListener((item, position) -> {
+//            Snackbar.make(binding.getRoot(), position + " : " + item.getTitle(), Snackbar.LENGTH_LONG).show();
+//        });
         // END
 
         // リストのフィルタ -START
