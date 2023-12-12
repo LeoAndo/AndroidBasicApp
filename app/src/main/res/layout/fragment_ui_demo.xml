@@ -58,22 +58,12 @@
             tools:itemCount="1"
             tools:listitem="@layout/list_item" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+        <Spinner
+            android:id="@+id/pokemon_type"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp">
-
-            <AutoCompleteTextView
-                android:id="@+id/pokemon_type"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:clickable="false"
-                android:cursorVisible="false"
-                android:focusable="false"
-                tools:ignore="LabelFor"
-                tools:text="ほのお" />
-        </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="4dp"
+            android:minHeight="48dp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/list_filter"

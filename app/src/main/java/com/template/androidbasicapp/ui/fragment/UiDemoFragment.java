@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.SystemClock;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -102,23 +103,28 @@ public class UiDemoFragment extends Fragment {
             Snackbar.make(binding.getRoot(), position + " : " + item.getName(), Snackbar.LENGTH_LONG).show();
         });
         final List<String> types = Arrays.stream(PokemonType.values()).map(PokemonType::getType).collect(Collectors.toList());
-        final String firstType = types.get(0);
         binding.pokemonType.setAdapter(new ArrayAdapter<>(requireContext(), android.R.layout.simple_list_item_1, types));
-        binding.pokemonType.setText(firstType, false);
-        binding.pokemonType.setOnItemClickListener((parent, view1, position, id) -> {
-            pokemonItems.clear();
-            Optional<PokemonType> pokemonType = Arrays.stream(PokemonType.values()).filter(p -> p.ordinal() == position).findFirst();
-            if (pokemonType.isPresent()) {
-                switch (pokemonType.get()) {
-                    case ALL:
-                        pokemonItems.addAll(TestData.createPokemonList());
-                        break;
-                    default:
-                        final List<Pokemon> pokemonList = TestData.createPokemonList().stream().filter(p -> p.getType() == pokemonType.get()).collect(Collectors.toList());
-                        pokemonItems.addAll(pokemonList);
-                        break;
+        binding.pokemonType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                pokemonItems.clear();
+                Optional<PokemonType> pokemonType = Arrays.stream(PokemonType.values()).filter(p -> p.ordinal() == position).findFirst();
+                if (pokemonType.isPresent()) {
+                    switch (pokemonType.get()) {
+                        case ALL:
+                            pokemonItems.addAll(TestData.createPokemonList());
+                            break;
+                        default:
+                            final List<Pokemon> pokemonList = TestData.createPokemonList().stream().filter(p -> p.getType() == pokemonType.get()).collect(Collectors.toList());
+                            pokemonItems.addAll(pokemonList);
+                            break;
+                    }
+                    binding.listFilter.getAdapter().notifyDataSetChanged();
                 }
-                binding.listFilter.getAdapter().notifyDataSetChanged();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
             }
         });
         // END
