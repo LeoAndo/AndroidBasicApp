@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/TextAppearance.Material3.HeadlineMedium"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:text="通知コンテンツタップ時に表示する画面\n画面起動時に対象の通知を消しています"
+    tools:context=".ui.activity.NotificationInfoActivity">
+
+</TextView>
