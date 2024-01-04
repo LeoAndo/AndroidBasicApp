@@ -1,15 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
     tools:context=".ui.fragment.NotificationDemoFragment">
 
-    <TextView
-        android:id="@+id/message"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="Hello" />
-</LinearLayout>
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <EditText
+            android:id="@+id/edt_notification_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="notificationId(ex：1)"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:text="123" />
+
+        <EditText
+            android:id="@+id/edt_request_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="requestCode(ex：1)"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:text="456" />
+
+        <EditText
+            android:id="@+id/edt_content_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="notification content title"
+            android:importantForAutofill="no"
+            android:text="content title" />
+
+        <EditText
+            android:id="@+id/edt_content_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="notification content text"
+            android:importantForAutofill="no"
+            android:text="content text" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Notification Channel"
+            android:textAlignment="center" />
+
+        <Spinner
+            android:id="@+id/sp_notification_channel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Notification Priority"
+            android:textAlignment="center" />
+
+        <Spinner
+            android:id="@+id/sp_notification_priority"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp" />
+
+        <Button
+            android:id="@+id/btn_random"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="set random value" />
+
+        <Button
+            android:id="@+id/btn_default_notification_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="set default notificationId" />
+
+        <Button
+            android:id="@+id/btn_default_request_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="set default requestCode" />
+
+        <Button
+            android:id="@+id/btn_show_notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="show notification" />
+    </LinearLayout>
+</ScrollView>
