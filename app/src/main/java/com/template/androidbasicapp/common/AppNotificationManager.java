@@ -14,6 +14,8 @@ import com.template.androidbasicapp.AppLogger;
 import com.template.androidbasicapp.R;
 import com.template.androidbasicapp.ui.activity.NotificationInfoActivity;
 
+import java.util.UUID;
+
 /**
  * 通知処理
  */
@@ -23,15 +25,11 @@ public final class AppNotificationManager {
     public static final String EXTRA_KEY_TITLE = "title";
     // END
     /**
-     * Notificationに同じidを指定するとすでに表示中の通知インスタンスが上書きされ、
-     * idを他の通知インスタンスと被らない一意なIDを指定すると通知インスタンスを新しく作成する仕組み
+     * 異常系の確認用定数
      */
     public static final int DEFAULT_NOTIFICATION_ID = 1;
     /**
-     * FLAG_IMMUTABLEを使ったPendingIntentはrequestCodeが同じでも
-     * 起動先のコンポーネント(Activity, Service など)が変わっていればインスタンスが分かれるため、
-     * requestCodeはアプリ内で全て同じ値を使っても基本的にOK。
-     * 起動先のコンポーネントは同じで複数のPendingIntentのインスタンスを作成したい場合のみrequestCodeを変える必要がある。
+     * 異常系の確認用定数
      */
     public static final int DEFAULT_PENDING_INTENT_REQUEST_CODE = 1;
     @NonNull
@@ -120,7 +118,7 @@ public final class AppNotificationManager {
     /**
      * idを指定して通知を削除する.
      *
-     * @param notificationId Notificationに指定する一意のid (同じIDを指定すると通知が上書きされる)
+     * @param notificationId Notificationに指定する一意のid
      */
     public void cancelNotification(final int notificationId) {
         AppLogger.d("notificationId: " + notificationId);
@@ -130,8 +128,8 @@ public final class AppNotificationManager {
     /**
      * 通知を表示する.
      *
-     * @param notificationId Notificationに指定する一意のid (同じIDを指定すると通知が上書きされる)
-     * @param requestCode    通知コンテンツ用のPendingIntentに指定するrequestCode
+     * @param notificationId Notificationに指定する一意のid
+     * @param requestCode    通知コンテンツ用のPendingIntentに指定するrequestCode　一意のid
      * @param channelId      NotificationChannelに指定する一意のid
      * @param title          通知コンテンツに設定するタイトル
      * @param text           通知コンテンツに設定するテキスト
@@ -143,35 +141,67 @@ public final class AppNotificationManager {
                                  @NonNull final String title,
                                  @NonNull final String text,
                                  final int priority) {
-        AppLogger.d("notificationId: " + notificationId + " requestCode: " + channelId + " title: " + title + " text: " + text + " priority: " + priority);
-        Notification notification = createNotification(notificationId, requestCode, channelId, title, text, priority);
-        notificationManager.notify(notificationId, notification); // 0を指定すると通知は表示されない
+        final Intent intent = new Intent(context, NotificationInfoActivity.class)
+                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK)
+                .putExtra(EXTRA_KEY_NOTIFICATION_ID, notificationId)
+                .putExtra(EXTRA_KEY_TITLE, title);
+        final PendingIntent contentIntent =
+                PendingIntent.getActivity(context, requestCode, intent, PendingIntent.FLAG_IMMUTABLE);
+        final Notification notification = createNotificationBuilder(notificationId, contentIntent, channelId, title, text, priority).build();
+        notificationManager.notify(notificationId, notification);
+    }
+
+    /**
+     * 通知を表示する.
+     *
+     * @param title 通知コンテンツに設定するタイトル
+     * @param text  通知コンテンツに設定するテキスト
+     */
+    public void showFooBarNotification(@NonNull final String title, @NonNull final String text) {
+        final int notificationId = UUID.randomUUID().hashCode();
+        final int requestCode = UUID.randomUUID().hashCode();
+        final String channelId = NotificationChannelId.DEFAULT_PRIORITY.name();
+        final int priority = NotificationPriority.DEFAULT.getPriority();
+
+        final Intent intent = new Intent(context, NotificationInfoActivity.class)
+                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK)
+                .putExtra(EXTRA_KEY_NOTIFICATION_ID, notificationId)
+                .putExtra(EXTRA_KEY_TITLE, title);
+        final PendingIntent contentIntent =
+                PendingIntent.getActivity(context, requestCode, intent, PendingIntent.FLAG_IMMUTABLE);
+        final Notification notification =
+                createNotificationBuilder(
+                        notificationId, contentIntent, channelId, title, text, priority
+                ).build();
+        notificationManager.notify(notificationId, notification);
     }
 
     /**
      * <pre>
-     *     通知を作成する.
+     *     NotificationCompat.Builderを作成する.ここでアプリ共通の設定を行う.
      *     Google純正のアラームアプリ(DeskClock)のKotlinコードを参考にしている.
      * </pre>
      *
-     * @param notificationId Notificationに指定する一意のid (同じIDを指定すると通知が上書きされる)
-     * @param requestCode    通知コンテンツ用のPendingIntentに指定するrequestCode
+     * @param notificationId Notificationに指定する一意のid
+     * @param contentIntent  通知コンテンツ用のPendingIntent
      * @param channelId      NotificationChannelに指定する一意のid
      * @param title          通知コンテンツに設定するタイトル
      * @param text           通知コンテンツに設定するテキスト
      * @param priority       通知のpriority
-     * @return 通知インスタンス
+     * @return {@link NotificationCompat.Builder} インスタンス
      * @see <a href="https://cs.android.com/android/platform/superproject/main/+/main:packages/apps/DeskClock/src/com/android/deskclock/alarms/AlarmNotifications.kt;l=175?hl=ja">...</a>
      */
     @NonNull
-    private Notification createNotification(
+    private NotificationCompat.Builder createNotificationBuilder(
             final int notificationId,
-            final int requestCode,
+            @NonNull final PendingIntent contentIntent,
             @NonNull final String channelId,
             @NonNull final String title,
             @NonNull final String text,
             final int priority) {
-        AppLogger.d("notificationId: " + notificationId + " requestCode: " + channelId + " title: " + title + " text: " + text + " priority: " + priority);
+        AppLogger.d("contentIntent hashCode: " + contentIntent.hashCode());
+        AppLogger.d("notificationId: " + notificationId + " requestCode: " + channelId +
+                " title: " + title + " text: " + text + " priority: " + priority);
         final NotificationCompat.Builder builder =
                 new NotificationCompat.Builder(context, channelId)
                         // .setShowWhen(false) // targetSDK 24以降をターゲットとするアプリはデフォルトfalse
@@ -180,22 +210,13 @@ public final class AppNotificationManager {
                         //.setColor(context.getColor(R.color.default_background))
                         .setSmallIcon(R.drawable.ic_splash)
                         .setAutoCancel(false)
-                        .setPriority(priority)
+                        .setPriority(priority)// TODO: setPriorityの設定はOS8以上のデバイスでは無視され、NotificationChannelのimportanceの設定値が適用される.本アプリはOS10以上をターゲットにしているため削除できる.
                         .setCategory(NotificationCompat.CATEGORY_EVENT)
                         .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
                         //.setSortKey()
                         //.setGroup()
                         .setLocalOnly(true);
-
-        // 通知コンテンツをタップした時に起動するIntent.
-        final Intent intent = new Intent(context, NotificationInfoActivity.class)
-                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK)
-                .putExtra(EXTRA_KEY_NOTIFICATION_ID, notificationId)
-                .putExtra(EXTRA_KEY_TITLE, title);
-        final PendingIntent contentIntent =
-                PendingIntent.getActivity(context, requestCode, intent, PendingIntent.FLAG_IMMUTABLE);
         builder.setContentIntent(contentIntent);
-        AppLogger.d("contentIntent hashCode: " + contentIntent.hashCode());
-        return builder.build();
+        return builder;
     }
 }
