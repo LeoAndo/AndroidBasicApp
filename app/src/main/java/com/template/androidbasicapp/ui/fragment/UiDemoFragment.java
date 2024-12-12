@@ -15,7 +15,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
 import com.google.android.material.snackbar.Snackbar;
-import com.template.androidbasicapp.AppLogger;
 import com.template.androidbasicapp.BuildConfig;
 import com.template.androidbasicapp.R;
 import com.template.androidbasicapp.data.Item;
@@ -28,7 +27,6 @@ import com.template.androidbasicapp.ui.widget.PokemonListAdapter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
