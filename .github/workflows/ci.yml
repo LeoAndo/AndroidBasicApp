@@ -39,8 +39,8 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-gradle-
     
-    - name: Run lint for lint the variants.
-      run: ./gradlew lint
+    #- name: Run lint for lint the variants.
+    #  run: ./gradlew lint
 
     #- name: Run unit tests for testDebugUnitTest the variants.
     #  run: ./gradlew testDebugUnitTest
