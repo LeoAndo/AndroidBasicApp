@@ -20,7 +20,7 @@ jobs:
     - uses: actions/checkout@v4
     
     - name: set up JDK 21
-      uses: actions/setup-java@v3
+      uses: actions/setup-java@v4
       with:
         java-version: '21'
         distribution: 'temurin'
@@ -39,8 +39,8 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-gradle-
     
-    #- name: Run lint for lint the variants.
-    #  run: ./gradlew lint
+    - name: Run lint for lint the variants.
+      run: ./gradlew lint
 
     #- name: Run unit tests for testDebugUnitTest the variants.
     #  run: ./gradlew testDebugUnitTest
